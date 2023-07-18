@@ -8,8 +8,8 @@ public class Bankomat {
     private static final String MESSAGE_WRONG_SUM_CASH = "Данная сумма не может быть выдана, введите сумму кратную 50.";
     private static final String MESSAGE_WRONG_SUM_SUBZERO = "Данная сумма меньше 0, введите корректную сумму.";
     private static final String MESSAGE_WRONG_SUM_OVER = "Вы не располагаете такими средствами, введите другую сумму.";
-    private int cash = getCash();
-    private final TreeMap<Integer, Integer> setBanknotes = setOfBanknotes(cash);
+    private final int cash = getCash();
+    private final TreeMap<Integer, Integer> setBanknotes = setOfBanknotes();
 
     private Bankomat() {
     }
@@ -46,7 +46,7 @@ public class Bankomat {
         return summ % 50 == 0;
     }
 
-    private TreeMap<Integer, Integer> setOfBanknotes(int cash) {
+    private TreeMap<Integer, Integer> setOfBanknotes() {
         TreeMap<Integer, Integer> setBanknotes = new TreeMap<>();
         int balance = cash;
         while (balance > 0) {
